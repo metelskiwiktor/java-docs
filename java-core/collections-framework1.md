@@ -3,6 +3,9 @@
 
 Java Collections Framework (JCF) to zestaw klas i interfejsów w języku Java, które umożliwiają przechowywanie i manipulowanie grupami obiektów. Ułatwia operacje takie jak wyszukiwanie, sortowanie, insercje, usuwanie itp. JCF zawiera interfejsy, implementacje oraz algorytmy, które upraszczają operacje na kolekcjach danych.
 
+![medium-mbanaee61.webp](..%2Fresources%2Fmedium-mbanaee61.webp) <br>
+https://medium.com/@mbanaee61/mastering-the-java-collections-framework-hierarchy-with-java-code-and-junit-testing-ab2eb87746ed
+
 ## 1. Interfejs `Iterator`
 
 `Iterator` to interfejs w Java Collections Framework, który pozwala na iterację po elementach w kolekcji w kontrolowany sposób. Każda kolekcja implementująca interfejs `Iterable` może zwrócić `Iterator`.
