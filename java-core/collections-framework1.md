@@ -37,7 +37,13 @@ Interfejs `Iterable` to interfejs, który definiuje jedną metodę `iterator()`,
 
 ### 2.1 `ArrayList`
 
-`ArrayList` jest jedną z implementacji interfejsu `List`.
+`ArrayList` jest jedną z implementacji interfejsu `List` opartą o tablicę dynamiczną.
+
+- **Charakterystyka**:
+  - `ArrayList` jest implementacją `List` opartą na **dynamicznej tablicy**. <br> Dynamiczna tablica jest strukturą danych, która może zmieniać swój rozmiar podczas działania programu. Kiedy liczba elementów przekroczy bieżącą pojemność tablicy, nowa, większa tablica jest tworzona w pamięci, a wszystkie istniejące elementy są do niej kopiowane.
+  - Szybki dostęp do elementów przez indeks (`O(1)`), ponieważ jest to operacja stałoczasowa.
+  - Wolne operacje dodawania i usuwania elementów w środku listy (`O(n)`), ponieważ wymagają przesunięcia elementów w tablicy.
+  - Efektywne, gdy trzeba często uzyskiwać dostęp do elementów lub modyfikować elementy na końcu listy.
 
 #### Tworzenie własnej implementacji `ArrayList`:
 
@@ -54,7 +60,12 @@ Aby stworzyć własną implementację `ArrayList`, wykonaj następujące kroki:
 
 ### 2.2 `LinkedList`
 
-`LinkedList` jest kolejną implementacją interfejsu `List`.
+`LinkedList` jest kolejną implementacją interfejsu `List` opartą o więzły.
+
+- **Charakterystyka**:
+  - `LinkedList` jest implementacją `List` opartą na **liście dwukierunkowej**. <br>Lista dwukierunkowa to struktura danych, w której każdy element (nazywany "węzłem") zawiera odniesienia do swojego poprzedniego i następnego elementu. Dzięki temu, dodawanie i usuwanie elementów na początku lub końcu listy jest bardzo szybkie (`O(1)`).
+  - Wolniejszy dostęp do elementów przez indeks (`O(n)`), ponieważ wymaga iteracji przez listę.
+  - Efektywny, gdy często trzeba dodawać/usuwać elementy na początku lub końcu listy.
 
 #### Tworzenie własnej implementacji `LinkedList`:
 
