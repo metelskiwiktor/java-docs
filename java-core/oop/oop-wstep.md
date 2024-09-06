@@ -24,13 +24,24 @@ definiowania klasy, a obiekty tworzymy za pomocą słowa kluczowego `new`.
 ### Przykład z życia: pojęcie samochodu
 
 #### 1. Klasa
-Wyobraź sobie **klasę** jako szablon lub plan dla czegoś. Na przykład, klasa `Car` (samochód) może reprezentować ogólny koncept samochodu, opisujący jego właściwości i zachowanie, takie jak `brand` (marka), `model`, `year` (rok), oraz metody takie jak `drive()` (jechać) czy `stop()` (zatrzymać). Klasa jest zatem abstrakcyjną definicją, która nie istnieje fizycznie, a jedynie opisuje cechy i działania.
+
+Wyobraź sobie **klasę** jako szablon lub plan dla czegoś. Na przykład, klasa `Car` (samochód) może reprezentować ogólny
+koncept samochodu, opisujący jego właściwości i zachowanie, takie jak `brand` (marka), `model`, `year` (rok), oraz
+metody takie jak `drive()` (jechać) czy `stop()` (zatrzymać). Klasa jest zatem abstrakcyjną definicją, która nie
+istnieje fizycznie, a jedynie opisuje cechy i działania.
 
 #### 2. Obiekt
-**Obiekt** to konkretny egzemplarz klasy. Kiedy budujemy samochód na podstawie planów (czyli klasy `Car`), tworzymy obiekt. Na przykład, obiektem może być konkretny samochód marki **Toyota** model **Corolla** z roku **2020**. Obiekt jest "rzeczywistym" reprezentantem klasy i posiada wartości przypisane do atrybutów klasy.
+
+**Obiekt** to konkretny egzemplarz klasy. Kiedy budujemy samochód na podstawie planów (czyli klasy `Car`), tworzymy
+obiekt. Na przykład, obiektem może być konkretny samochód marki **Toyota** model **Corolla** z roku **2020**. Obiekt
+jest "rzeczywistym" reprezentantem klasy i posiada wartości przypisane do atrybutów klasy.
 
 #### 3. Instancja
-**Instancja** jest terminem często używanym zamiennie z obiektem, ale bardziej technicznie odnosi się do **konkretnego przypadku** obiektu klasy. Kiedy tworzymy obiekt `myCar` na podstawie klasy `Car`, `myCar` jest **instancją** klasy `Car`. Możemy mieć wiele instancji tej samej klasy – na przykład `car1`, `car2`, `car3` mogą być różnymi instancjami klasy `Car`, gdzie każdy obiekt ma swoje unikalne wartości atrybutów (np. różne marki, modele, lata produkcji).
+
+**Instancja** jest terminem często używanym zamiennie z obiektem, ale bardziej technicznie odnosi się do **konkretnego
+przypadku** obiektu klasy. Kiedy tworzymy obiekt `myCar` na podstawie klasy `Car`, `myCar` jest **instancją** klasy
+`Car`. Możemy mieć wiele instancji tej samej klasy – na przykład `car1`, `car2`, `car3` mogą być różnymi instancjami
+klasy `Car`, gdzie każdy obiekt ma swoje unikalne wartości atrybutów (np. różne marki, modele, lata produkcji).
 
 ### Podsumowanie
 
@@ -51,13 +62,19 @@ public class Car {
         car.brand = "audi";
         car.model = "a5";
         car.year = 2012;
-       System.out.println("Car(" + audi.brand + ", " + audi.model + ", " + audi.year + " )");
-       System.out.printf("Car(%s, %s, %d)%n", audi.brand, audi.model, audi.year);
+        System.out.println("Car(" + audi.brand + ", " + audi.model + ", " + audi.year + " )");
+        System.out.printf("Car(%s, %s, %d)%n", audi.brand, audi.model, audi.year);
     }
 }
 ```
-> [!NOTE]
-> **`System.out.printf()`** - metoda w Javie do formatowanego wypisywania tekstu na konsolę, podobna do `String.format()`, ale bezpośrednio wypisuje wynik. Używa specyfikatorów formatu, np. `%s` (String), `%d` (int), aby dynamicznie tworzyć sformatowany tekst.
+
+#### `System.out.printf` oraz `String.format`
+
+- **`String.format()`** - metoda w Javie, która zwraca sformatowany ciąg znaków. Używa specyfikatorów formatu, np.
+  `%s` (String), `%d` (int), aby dynamicznie tworzyć sformatowany tekst. Przydaje się, gdy chcemy przechowywać
+  sformatowany tekst w zmiennej lub zwrócić go z metody.
+- **`System.out.printf()`** - metoda w Javie do formatowanego wypisywania tekstu na konsolę, podobna do
+  `String.format()`, ale bezpośrednio wypisuje wynik.
 
 #### Zadania:
 
