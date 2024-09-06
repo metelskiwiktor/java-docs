@@ -1,5 +1,5 @@
 # Hibernate ORM Annotations Documentation
-[WARNING]
+> [!WARNING]
 > W trakcie budowy
 
 ## 1. Wprowadzenie
