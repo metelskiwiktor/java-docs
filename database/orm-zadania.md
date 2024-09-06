@@ -45,7 +45,7 @@ Stwórz relację `OneToMany` z `orphanRemoval = true`. Usuń element z kolekcji 
 
 ---
 
-## Zadanie 5: Użycie `@JoinColumn` i brak tabeli pośredniej
+## Zadanie 4: Użycie `@JoinColumn` i brak tabeli pośredniej
 
 ### Opis
 
@@ -60,7 +60,7 @@ Utwórz relację `ManyToOne` lub `OneToOne` między dwiema encjami, korzystając
 
 ---
 
-## Zadanie 4: Problem zapytań `N+1` z `ManyToMany` i `EAGER`
+## Zadanie 5: Problem zapytań `N+1` z `ManyToMany` i `EAGER`
 
 ### Opis
 
