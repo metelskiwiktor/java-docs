@@ -56,7 +56,7 @@ public class Car {
     }
 }
 ```
-> [!INFO]
+> [!NOTE]
 > **`System.out.printf()`** - metoda w Javie do formatowanego wypisywania tekstu na konsolę, podobna do `String.format()`, ale bezpośrednio wypisuje wynik. Używa specyfikatorów formatu, np. `%s` (String), `%d` (int), aby dynamicznie tworzyć sformatowany tekst.
 
 #### Zadania:
