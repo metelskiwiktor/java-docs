@@ -59,17 +59,3 @@ Utwórz relację `ManyToOne` lub `OneToOne` między dwiema encjami, korzystając
 - Zobaczysz, że Hibernate tworzy kolumnę klucza obcego bez tworzenia nowej tabeli pośredniej.
 
 ---
-
-## Zadanie 5: Problem zapytań `N+1` z `ManyToMany` i `EAGER`
-
-### Opis
-
-Utwórz relację `ManyToMany` między dwoma encjami i ustaw `fetch = FetchType.EAGER` dla obu stron. Pobierz wszystkie encje nadrzędne i zaobserwuj liczbę wykonanych zapytań SQL. Zademonstruj problem zapytań `N+1` i wyjaśnij, jak to wpływa na wydajność.
-
-### Cel
-- Identyfikacja problemu `N+1` zapytań w relacjach `ManyToMany`.
-- Zrozumienie wpływu `FetchType.EAGER` na wydajność aplikacji.
-
-### Oczekiwany rezultat
-- Powstaje problem `N+1` zapytań, prowadzący do obniżenia wydajności aplikacji.
-
