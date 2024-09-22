@@ -188,7 +188,7 @@ public class User {
 }
 ```
 
-### 7.1 Wstawianie Obiektu `User` do Bazy Danych oraz pobranie klucza głównego
+### 7.1 Wstawianie Obiektu `User` do Bazy Danych
 
 ```java
 public void saveUser(User user, Connection connection) {
