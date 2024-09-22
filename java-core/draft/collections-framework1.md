@@ -82,3 +82,6 @@ Aby stworzyć własną implementację `LinkedList`, wykonaj następujące kroki:
 - `addLast(E e)` - dodaje element na końcu listy.
 - `removeFirst()` - usuwa pierwszy element.
 - `removeLast()` - usuwa ostatni element.
+
+todo - implementuj metody list (w linkedList) - dodanie metod takie jak addFirst i removeLast to kolejny krok
+dostac informacje o size w linkedlist

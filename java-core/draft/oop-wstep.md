@@ -120,7 +120,7 @@ public class BankAccount {
 1. Napisz klasę `BankAccount` z atrybutami `accountNumber`, `balance` oraz metodami `deposit()` i `withdraw()`. Dodaj
    metodę `showBalance()`, która zwróci bieżące saldo. Utwórz obiekt tej klasy i wykonaj kilka operacji.
 2. Stwórz klasę `Rectangle` z atrybutami `length` i `width` oraz metodą `calculateArea()`, która zwraca pole prostokąta.
-   Dodaj metodę `calculatePerimeter` do obliczenia obwodu prostokąta i przetestuj oba obliczenia.
+   Dodaj metodę `calculatePerimeter()` do obliczenia obwodu prostokąta i przetestuj oba obliczenia.
 
 ## 4. Konstruktory
 
@@ -278,3 +278,16 @@ public class Rectangle extends Shape {
    po `Employee` i nadpisują tę metodę. Przetestuj polimorfizm, tworząc obiekty obu klas i wywołując metodę
    `calculateSalary()`.
 
+todo
+2 - "Za pomocą wykonań sout wyswietl ich atrybuty" > souf, nie sout, dodatkowo pola final oraz static
+Lepiej wyjasnic w kodzie kiedy jest instancja a kiedy obiekt, wyjasnic czym jest Typ
+3 - zamienic przyklady, aby to Rectangle byl jako przyklad, a BankAccount jako zadanie - jeszcze bardziej to
+dopracować, w przykladzie tez powinny byc parametry - dodatkowo nie powinno byc modyfikatorow w metodach, zmienna
+lokalna vs pole klasy (this.) Roznica miedzy getter a setter, przeciążanie metod, metody statyczne
+4 - konstruktory domyslne, zaleznosc pola final z konstruktorem, przyklad nie do konca oddaje sens dzialania programu
+5 - hermatyzacja, nie kapsulkowanie. dodatkowo przyklad powinien byc tam gdzie hermetyzacja jest faktycznie istotna,
+ulepszyc opis - to sposob kontrolowania dostepu do danych, nie samo ukrywanie (ukrywanie to jakies rozwiazanie).
+Najlepiej przyklad ktory pokaze "zle ukrycie danych", i którą sobie zrefaktorujemy (do tego będą potzrebne kroki).
+6 - informacja ze kazda klasa dziedziczy z Object oraz ze tylko 1 klase mozna dziedziczyc, final jako brak
+dziedziczenia,"2. przyklad" do poprawy bo potrzebna jest metoda do nadpisania, oraz ogólnie rozbić to na 2 sekcje (
+dziedziczenie, nadpisanie) - roznica miedzy Typ a Instancja (gdzei jest implementacja itp.)

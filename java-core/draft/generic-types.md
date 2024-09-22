@@ -72,17 +72,25 @@ printer.print(123);  // Typ może być wnioskowany automatycznie
 Metody statyczne również mogą być generyczne i wymagają takiej samej deklaracji typu przed typem zwracanym:
 
 ```java
-public class Utils {
-    public static <T> void printArray(T[] array) {
-        for (T element : array) {
-            System.out.println(element);
-        }
-    }
+public class Container<T> {
+
+   private T value;
+
+   public Container(T value) {
+      this.value = value;
+   }
+
+   public T getValue() {
+      return value;
+   }
+
+   public static <U> Container<U> create(U value) {
+      return new Container<>(value);
+   }
 }
 
-// Przykład użycia:
-Integer[] intArray = {1, 2, 3};
-Utils.printArray(intArray);  // Wyświetli: 1 2 3
+Container<String> stringContainer = Container.create("Hello World");
+System.out.println(stringContainer.getValue()); //wyświetli: "Hello World"
 ```
 
 ## Wielokrotne typy generyczne
@@ -270,7 +278,7 @@ String value = optionalValue.orElse("Default Value");
 System.out.println(value); // Wyświetli: Default Value
 ```
 
-## Sekcja 2: Zaawansowane pperacje
+## Sekcja 2: Zaawansowane operacje
 
 ### `of(T value)`
 
