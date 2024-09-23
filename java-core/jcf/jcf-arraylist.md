@@ -228,5 +228,3 @@ System.out.println(names); // ["Anna", "Charlie"]
     - Można synchronizować dostęp ręcznie lub użyć `Collections.synchronizedList(new ArrayList<>())`. Alternatywnie,
       można użyć `CopyOnWriteArrayList` z pakietu `java.util.concurrent`.
 
----
-
