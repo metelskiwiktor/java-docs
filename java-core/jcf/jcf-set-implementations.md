@@ -182,11 +182,11 @@ do implementacji zbiorów posortowanych, np. w algorytmach wymagających szybkie
 #### Wydajność
 
 | Operacja             | Złożoność czasowa | 
-|----------------------|------------------------------|
-| `add(E e)`           | O(1)                         |
-| `remove(Object o)`   | O(1)                         |
-| `contains(Object o)` | O(1)                         |
-| `size()`             | O(1)                         |
+|----------------------|-------------------|
+| `add(E e)`           | O(1)              |
+| `remove(Object o)`   | O(1)              |
+| `contains(Object o)` | O(1)              |
+| `size()`             | O(1)              |
 
 **Uwagi:**
 

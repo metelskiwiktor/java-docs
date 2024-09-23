@@ -84,7 +84,7 @@ public class Container<T> {
       return value;
    }
 
-   public static <U> Container<U> create(U value) {
+   public static <T> Container<T> create(T value) {
       return new Container<>(value);
    }
 }
@@ -211,6 +211,95 @@ public static void processElements(List<? extends Number> numbers) {
 W tym przykładzie `processElements` może akceptować listę dowolnych podtypów `Number` (takich jak `Integer`, `Double`,
 itp.).
 
+## Ograniczenia typów generycznych
+
+Chociaż typy generyczne w Javie mają wiele zalet, istnieje kilka ograniczeń, o których należy pamiętać:
+
+### 1. Tworzenie tablic typów generycznych
+W Javie nie można bezpośrednio utworzyć tablicy typów generycznych. Na przykład próba utworzenia tablicy typu generycznego `T[]` w klasie generycznej spowoduje błąd kompilacji:
+
+```java
+public class MyClass<T> {
+    T[] array = new T[10];  // Błąd kompilacji!
+}
+```
+
+Jest to spowodowane mechanizmem wymazywania typów (**type erasure**), który usuwa informacje o typach generycznych podczas kompilacji. W efekcie, nie ma możliwości bezpośredniego tworzenia tablic z typami generycznymi.
+
+Aby obejść to ograniczenie, można skorzystać z rzutowania lub metody `Array.newInstance`:
+```java
+import java.lang.reflect.Array;
+
+public class MyClass<T> {
+    private T[] array;
+
+    public MyClass(Class<T> clazz, int size) {
+        array = (T[]) Array.newInstance(clazz, size);
+    }
+}
+```
+
+Znacznie częstszym rozwiązaniem jest unikanie użycia typów generycznych w tablicach i zastąpienie ich tablicami `Object[]`, z rzutowaniem typów w odpowiednich miejscach:
+```java
+public class MyArrayList<T> {
+    private Object[] elements;
+
+    public MyArrayList(int size) {
+        elements = new Object[size];
+    }
+
+    public void add(T element, int index) {
+        elements[index] = element;  // Przechowywanie w Object[]
+    }
+
+    public T get(int index) {
+        return (T) elements[index];  // Rzutowanie na T
+    }
+}
+```
+
+
+### 2. Typy prymitywne nie mogą być używane jako argumenty typów generycznych
+Generics w Javie działają wyłącznie z typami referencyjnymi (np. `Integer`, `String`). Nie można używać typów prymitywnych (np. `int`, `char`) jako parametrów typu:
+
+```java
+List<int> intList = new ArrayList<>();  // Błąd kompilacji!
+```
+
+W takich przypadkach należy używać odpowiedników prymitywnych typów referencyjnych (np. `Integer` zamiast `int`).
+
+### 3. Nie można utworzyć instancji typu generycznego
+Nie można utworzyć bezpośrednio instancji typu generycznego z powodu wymazywania typów. Przykład:
+
+```java
+public class MyClass<T> {
+    public MyClass() {
+        T obj = new T();  // Błąd kompilacji!
+    }
+}
+```
+
+Aby obejść to ograniczenie, można przyjąć `Class<T>` jako parametr konstruktora, a następnie użyć metody `newInstance()`:
+
+```java
+public class MyClass<T> {
+   private T obj;
+
+   public MyClass(Class<T> clazz) throws InstantiationException, IllegalAccessException {
+      obj = clazz.getDeclaredConstructor().newInstance();
+   }
+}
+```
+
+### 4. Brak wsparcia dla przeładowania metod na podstawie parametrów typu generycznego
+Java nie obsługuje przeładowania metod w oparciu o różne typy parametrów generycznych. Na przykład:
+
+```java
+public class MyClass {
+    public void print(List<String> list) { /* ... */ }
+    public void print(List<Integer> list) { /* ... */ }  // Błąd kompilacji!
+}
+```
 
 ## Zadanie praktyczne
 
@@ -224,7 +313,7 @@ zarządzanie brakiem wartości w programie.
 Twoja implementacja klasy powinna umożliwiać przechowywanie obiektu dowolnego typu oraz operacje takie jak pobieranie wartości i
 sprawdzanie, czy wartość jest obecna.
 
-## Sekcja 1: Podstawowe Operacje
+## Sekcja 1: Podstawowe operacje
 
 ### `ofNullable(T value)`
 
@@ -278,7 +367,7 @@ String value = optionalValue.orElse("Default Value");
 System.out.println(value); // Wyświetli: Default Value
 ```
 
-## Sekcja 2: Zaawansowane operacje
+## Sekcja 2: Rozszerzone operacje
 
 ### `of(T value)`
 
