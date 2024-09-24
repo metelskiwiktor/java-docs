@@ -272,3 +272,47 @@ try (Connection connection = DriverManager.getConnection("jdbc:postgresql://loca
         }
 }
 ```
+
+# Projekt JDBC w Javie z Kompozycją Encji
+
+## Opis
+Celem tego projektu jest stworzenie aplikacji Java, która będzie wykorzystywać JDBC do zarządzania dwoma encjami: `User` i `Profile`. Encja `User` powinna zawierać kompozycję klasy `Profile`, co oznacza, że użytkownik posiada przypisany profil. Aplikacja będzie zawierała warstwę repozytorium do wykonywania operacji CRUD na bazie danych oraz warstwę Main, gdzie będą uruchamiane operacje.
+
+## Wymagania
+1. **Encje:**
+  - Stwórz dwie klasy:
+    - `User`: zawiera pola takie jak `id`, `username`, `password` oraz `Profile`.
+    - `Profile`: zawiera pola `id`, `email` oraz `phone`.
+
+2. **Baza Danych:**
+  - Utwórz dwie tabele:
+    - Tabela `users` zawiera pola `id`, `username`, `password` oraz `profile_id` (klucz obcy do tabeli `profiles`).
+    - Tabela `profiles` zawiera pola `id`, `email`, `phone`.
+
+3. **Repozytorium:**
+  - Zaimplementuj warstwę repozytorium z operacjami CRUD dla encji `User` i `Profile`.
+  - Operacje, które musisz zaimplementować:
+    - Pobieranie użytkownika po ID, wraz z jego profilem.
+    - Pobieranie wszystkich użytkowników.
+    - Zapis użytkownika wraz z jego profilem do bazy danych.
+
+4. **Warstwa Main:**
+  - Zaimplementuj logikę w klasie `Main`, która będzie korzystać z repozytorium:
+    - Stwórz użytkownika z przypisanym profilem i zapisz go do bazy danych.
+    - Pobierz i wyświetl użytkownika z bazy danych.
+
+5. **Testy Jednostkowe:**
+  - Stwórz testy jednostkowe dla metod repozytorium, aby upewnić się, że operacje CRUD działają poprawnie.
+  - Stwórz testy jednostkowe w oparciu o bazę danych in-memory (H2) oraz testy jednostkowe z symulacją połączenia z JDBC za pomocą Mockito
+  - Testy powinny obejmować:
+    - Pobieranie użytkownika po ID.
+    - Pobieranie wszystkich użytkowników.
+    - Zapis użytkownika i sprawdzenie, czy dane są poprawnie zapisane.
+
+## Kroki Do Wykonania
+
+1. Skonfiguruj bazę danych PostgreSQL z tabelami `users` i `profiles`.
+2. Dodaj zależności JDBC do projektu (np. PostgreSQL JDBC driver).
+3. Zaimplementuj klasy `User` i `Profile` oraz warstwę repozytorium.
+4. W warstwie Main przetestuj zapisywanie i pobieranie użytkowników z profilami.
+5. Zaimplementuj testy jednostkowe z użyciem JUnit, Mockito oraz implementacji H2, aby przetestować metody repozytorium.
