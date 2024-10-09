@@ -16,54 +16,33 @@ Metoda `process` powinna zastosować przekazaną w konstruktorze operację `Stri
 
 ---
 
-**Zadanie 2: Generyczne interfejsy funkcyjne**
+**Zadanie 2: Obsługa zdarzeń za pomocą interfejsów funkcyjnych**
 
-Zdefiniuj generyczny interfejs funkcyjny `Converter<F, T>` z metodą:
-
-```java
-T convert(F from);
-```
-
-Następnie utwórz klasę `GenericConverter<F, T>`, która w konstruktorze przyjmuje obiekt `Converter<F, T>`. Klasa powinna posiadać metodę:
+Napisz interfejs funkcyjny `EventListener`, który zawiera metodę:
 
 ```java
-T convert(F from);
+void onEvent(String eventType, Object data);
 ```
 
-Metoda `convert` powinna używać przekazanego w konstruktorze konwertera do przekształcenia obiektu typu `F` na obiekt typu `T`. Przetestuj działanie, tworząc różne instancje `GenericConverter` z różnymi implementacjami `Converter<F, T>`, przekształcając:
+Następnie utwórz klasę `EventManager`, która pozwala na rejestrowanie i wywoływanie zdarzeń. Klasa powinna posiadać metody:
 
-- `String` na `Integer`.
-- `Integer` na `String`.
-- `Double` na `String`.
+```java
+void registerListener(EventListener listener);
+void triggerEvent(String eventType, Object data);
+```
+
+- Metoda `registerListener` pozwala na dodanie nowego słuchacza zdarzeń.
+- Metoda `triggerEvent` powinna powiadamiać wszystkich zarejestrowanych słuchaczy o wystąpieniu zdarzenia, przekazując im typ zdarzenia i powiązane dane.
+
+Przetestuj działanie, tworząc różne implementacje `EventListener`, które reagują na różne typy zdarzeń, na przykład:
+
+- Logowanie zdarzeń do konsoli.
+- Aktualizowanie interfejsu użytkownika.
+- Zapis zdarzeń do pliku.
 
 ---
 
-**Zadanie 3: Łączenie interfejsów funkcyjnych z klasami generycznymi**
-
-Stwórz generyczną klasę `Calculator<T>`, która w konstruktorze przyjmuje obiekt `Operation<T>`, gdzie `Operation` to generyczny interfejs funkcyjny z metodą:
-
-```java
-T apply(T a, T b);
-```
-
-Klasa `Calculator<T>` powinna posiadać metodę:
-
-```java
-T calculate(T a, T b);
-```
-
-Metoda `calculate` powinna używać przekazanej w konstruktorze operacji `Operation<T>` do przetworzenia wartości `a` i `b`. Zaimplementuj różne operacje arytmetyczne jako różne instancje `Calculator<T>` z odpowiednimi implementacjami `Operation<T>`:
-
-- Dodawanie.
-- Odejmowanie.
-- Mnożenie.
-- Dzielenie.
-
-Przetestuj działanie klasy `Calculator` dla typów `Integer` i `Double`.
-
----
-
-**Zadanie 4: Generyczne filtry z użyciem predykatów**
+**Zadanie 3: Generyczne filtry z użyciem predykatów**
 
 Utwórz generyczny interfejs funkcyjny `Predicate<T>` z metodą:
 
@@ -81,6 +60,30 @@ Metoda `filter` powinna zwrócić listę elementów z `items`, które spełniaj�
 
 - Liczb całkowitych (np. tylko liczby parzyste).
 - Ciągów znaków (np. tylko ciągi o długości większej niż 3).
+
+---
+
+**Zadanie 4: Operacje na kolekcjach z użyciem interfejsów funkcyjnych**
+
+Zdefiniuj interfejs funkcyjny `Transformer<T, R>` z metodą:
+
+```java
+R transform(T input);
+```
+
+Następnie utwórz klasę `CollectionUtils`, która zawiera statyczną metodę:
+
+```java
+public static <T, R> List<R> map(List<T> list, Transformer<T, R> transformer);
+```
+
+Metoda `map` powinna przekształcać listę `list`, stosując do każdego jej elementu funkcję `transformer`, i zwracać nową listę wyników.
+
+Przetestuj działanie, tworząc różne transformacje:
+
+- Zamiana listy liczb na ich reprezentacje tekstowe.
+- Podniesienie każdej liczby w liście do kwadratu.
+- Konwersja listy ciągów znaków na ich długości.
 
 ---
 
